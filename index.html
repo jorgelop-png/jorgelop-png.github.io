@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Descubre fragancias para cada momento. Explora nuestra colección de perfumes.">
+<title>ÉLIXIR | Perfumería</title>
+<style>
+:root{--ink:#211b20;--muted:#756b70;--cream:#fbf7f2;--rose:#ead8d5;--gold:#b58a55;--white:#fff;--line:#e9dfd9}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+header{position:sticky;top:0;z-index:10;background:#fbf7f2ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1160px;margin:auto;padding:17px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:Georgia,serif;font-size:25px;letter-spacing:5px;font-weight:bold}.logo span{color:var(--gold)}
+.links{display:flex;gap:27px;font-size:13px;letter-spacing:1px;text-transform:uppercase}.links a:hover{color:var(--gold)}
+.cart{border:1px solid var(--ink);background:transparent;padding:10px 15px;border-radius:30px;font-size:13px}
+.menu-btn{display:none;background:none;border:0;font-size:24px}
+.hero{max-width:1160px;margin:auto;padding:68px 24px 75px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
+.eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:bold}
+h1{font:normal clamp(42px,6vw,72px)/1.05 Georgia,serif;margin:18px 0 20px;max-width:570px}
+.hero p{font-size:16px;line-height:1.8;color:var(--muted);max-width:480px}
+.primary{display:inline-block;background:var(--ink);color:white;padding:15px 24px;border:0;border-radius:2px;margin-top:17px;letter-spacing:1px;font-size:12px;text-transform:uppercase}
+.primary:hover{background:var(--gold)}
+.hero-art{min-height:440px;position:relative;background:linear-gradient(135deg,#e8d7cf,#c9a99c);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #fff8;border-radius:50%;width:370px;height:370px}
+.hero-art:after{width:470px;height:470px}
+.big-bottle{width:145px;height:235px;position:relative;z-index:1;border-radius:28px 28px 18px 18px;background:linear-gradient(90deg,#a57b53,#e9d4ad 45%,#a77d55);box-shadow:22px 24px 35px #513b3438;display:flex;align-items:center;justify-content:center}
+.big-bottle:before{content:"";position:absolute;top:-38px;width:48px;height:42px;background:linear-gradient(90deg,#3b3029,#b6a28c,#3b3029);border-radius:5px 5px 2px 2px}
+.big-bottle:after{content:"ÉLIXIR\\A PARFUM";white-space:pre;text-align:center;letter-spacing:3px;line-height:2;font:12px Georgia,serif;color:#49372a;border:1px solid #725c46;padding:18px 8px}
+.art-caption{position:absolute;bottom:22px;right:24px;color:#fff;font:italic 18px Georgia,serif;z-index:2}
+.section{padding:75px 24px;max-width:1160px;margin:auto}.section-head{text-align:center;margin-bottom:35px}
+h2{font:normal clamp(32px,4vw,46px) Georgia,serif;margin:12px 0}
+.section-head p{color:var(--muted);line-height:1.7}
+.filters{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:28px 0}
+.filter{border:1px solid var(--line);background:transparent;padding:9px 17px;border-radius:25px;color:var(--muted);font-size:12px}
+.filter.active,.filter:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product{background:#fff;border:1px solid var(--line);padding:13px;display:flex;flex-direction:column}
+.product-art{height:235px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.product-art:before{content:"";position:absolute;width:175px;height:175px;border-radius:50%;background:#ffffff65}
+.bottle{width:82px;height:139px;border-radius:15px 15px 10px 10px;position:relative;z-index:1;box-shadow:12px 15px 18px #0002;display:flex;align-items:center;justify-content:center}
+.bottle:before{content:"";position:absolute;top:-22px;width:27px;height:25px;background:linear-gradient(90deg,#43372d,#c4ad91,#43372d);border-radius:3px 3px 0 0}
+.bottle:after{content:"ÉLIXIR";font:10px Georgia,serif;letter-spacing:2px;color:#fff;text-shadow:0 1px 3px #333}
+.product h3{font:normal 22px Georgia,serif;margin:17px 5px 6px}
+.notes{font-size:12px;color:var(--muted);margin:0 5px 12px;line-height:1.5}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;margin: auto 5px 5px;gap:10px}
+.price{font-weight:bold}.add{background:transparent;border:1px solid var(--ink);padding:9px 12px;font-size:11px;text-transform:uppercase}.add:hover{background:var(--ink);color:white}
+.about{background:#eee4dc;max-width:none;padding:65px 24px}.about-inner{max-width:950px;margin:auto;text-align:center}.about p{max-width:700px;margin:15px auto;color:#685d58;line-height:1.9}
+.contact{max-width:1160px;margin:auto;padding:75px 24px;text-align:center}.contact p{color:var(--muted);line-height:1.7}
+footer{background:var(--ink);color:#f8eee8;padding:28px 24px;text-align:center;font-size:12px;letter-spacing:1px}
+.modal-bg{position:fixed;inset:0;background:#0008;z-index:30;display:none;align-items:center;justify-content:center;padding:20px}.modal-bg.open{display:flex}
+.modal{background:var(--cream);width:min(480px,100%);padding:28px;max-height:85vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal h2{font-size:30px}.close{border:0;background:none;font-size:25px}.cart-items{padding:10px 0}.cart-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:12px 0;gap:12px;font-size:14px}.cart-actions{display:flex;gap:10px;flex-wrap:wrap}.cart-actions button{flex:1;min-width:120px;padding:12px;border:1px solid var(--ink);background:var(--ink);color:white}.cart-actions .secondary{background:transparent;color:var(--ink)}
+.notice{font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:45px;gap:30px}.hero-art{min-height:330px}.products{grid-template-columns:repeat(2,1fr)}.links{display:none;position:absolute;top:65px;left:0;right:0;background:var(--cream);padding:20px 24px;flex-direction:column;border-bottom:1px solid var(--line)}.links.show{display:flex}.menu-btn{display:block}.nav{padding:14px 18px}}
+@media(max-width:480px){.products{grid-template-columns:1fr}.product-art{height:220px}.logo{font-size:21px}.cart{padding:9px 11px}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav" aria-label="Navegación principal">
+    <a class="logo" href="#inicio">ÉLIXIR<span>.</span></a>
+    <div class="links" id="navLinks">
+      <a href="#inicio">Inicio</a><a href="#coleccion">Colección</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="cart" id="openCart" aria-label="Abrir carrito">Carrito (<span id="cartCount">0</span>)</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div>
+    <div class="eyebrow">El aroma también habla de ti</div>
+    <h1>Encuentra la fragancia que deja huella.</h1>
+    <p>Perfumes para cada personalidad, cada ocasión y cada momento. Descubre aromas que cuentan tu historia.</p>
+    <a class="primary" href="#coleccion">Explorar colección</a>
+  </div>
+  <div class="hero-art" role="img" aria-label="Ilustración decorativa de un frasco de perfume">
+    <div class="big-bottle"></div><div class="art-caption">Una esencia, mil recuerdos.</div>
+  </div>
+</section>
+
+<section class="section" id="coleccion">
+  <div class="section-head">
+    <div class="eyebrow">Nuestra selección</div><h2>La colección</h2>
+    <p>Explora algunas de nuestras fragancias destacadas.</p>
+  </div>
+  <div class="filters" aria-label="Filtrar perfumes">
+    <button class="filter active" data-filter="todos">Todos</button>
+    <button class="filter" data-filter="mujer">Para ella</button>
+    <button class="filter" data-filter="hombre">Para él</button>
+    <button class="filter" data-filter="unisex">Unisex</button>
+  </div>
+  <div class="products" id="products">
+    <article class="product" data-category="mujer">
+      <div class="product-art" style="background:#e9d9df"><div class="bottle" style="background:linear-gradient(90deg,#a85f76,#edb8c8,#a85f76)"></div></div>
+      <h3>Rose Élégance</h3><p class="notes">Floral · Rosa · Vainilla</p>
+      <div class="product-bottom"><span class="price">$899 MXN</span><button class="add" data-name="Rose Élégance" data-price="899">Agregar</button></div>
+    </article>
+    <article class="product" data-category="hombre">
+      <div class="product-art" style="background:#d9e0df"><div class="bottle" style="background:linear-gradient(90deg,#243d3b,#75918a,#243d3b)"></div></div>
+      <h3>深 Ocean Noir</h3><p class="notes">Amaderado · Cítrico · Fresco</p>
+      <div class="product-bottom"><span class="price">$1,090 MXN</span><button class="add" data-name="Ocean Noir" data-price="1090">Agregar</button></div>
+    </article>
+    <article class="product" data-category="unisex">
+      <div class="product-art" style="background:#e9dfcb"><div class="bottle" style="background:linear-gradient(90deg,#98734b,#d9bd8d,#98734b)"></div></div>
+      <h3>Amber Essence</h3><p class="notes">Ámbar · Especias · Madera</p>
+      <div class="product-bottom"><span class="price">$950 MXN</span><button class="add" data-name="Amber Essence" data-price="950">Agregar</button></div>
+    </article>
+    <article class="product" data-category="mujer">
+      <div class="product-art" style="background:#eadbd0"><div class="bottle" style="background:linear-gradient(90deg,#9d6e4d,#dfb48c,#9d6e4d)"></div></div>
+      <h3>Vanilla Dreams</h3><p class="notes">Dulce · Vainilla · Caramelo</p>
+      <div class="product-bottom"><span class="price">$820 MXN</span><button class="add" data-name="Vanilla Dreams" data-price="820">Agregar</button></div>
+    </article>
+    <article class="product" data-category="hombre">
+      <div class="product-art" style="background:#d7dce4"><div class="bottle" style="background:linear-gradient(90deg,#39465d,#9ca9bd,#39465d)"></div></div>
+      <h3>Blue Intense</h3><p class="notes">Aromático · Marino · Especias</p>
+      <div class="product-bottom"><span class="price">$1,150 MXN</span><button class="add" data-name="Blue Intense" data-price="1150">Agregar</button></div>
+    </article>
+    <article class="product" data-category="unisex">
+      <div class="product-art" style="background:#e4dcd4"><div class="bottle" style="background:linear-gradient(90deg,#66584c,#b5a28d,#66584c)"></div></div>
+      <h3>Pure Musk</h3><p class="notes">Almizcle · Limpio · Suave</p>
+      <div class="product-bottom"><span class="price">$990 MXN</span><button class="add" data-name="Pure Musk" data-price="990">Agregar</button></div>
+    </article>
+  </div>
+  <p class="notice" style="text-align:center;margin-top:22px">Precios y nombres de ejemplo: cámbialos por tu inventario real antes de publicar.</p>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="about-inner"><div class="eyebrow">Nuestra esencia</div><h2>Un aroma para recordar.</h2>
+  <p>En ÉLIXIR creemos que un perfume es más que una fragancia: es una forma de expresión. Queremos ayudarte a encontrar ese aroma especial que te acompañe y represente.</p></div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="eyebrow">Estamos para ayudarte</div><h2>¿Buscas tu próxima fragancia?</h2>
+  <p>Agrega tus favoritos al carrito y prepara tu pedido. Para completar la compra, comparte el resumen con nuestra tienda.</p>
+  <button class="primary" id="contactCart">Preparar mi pedido</button>
+</section>
+</main>
+<footer>ÉLIXIR PERFUMERÍA · © <span id="year"></span> · TODOS LOS DERECHOS RESERVADOS</footer>
+
+<div class="modal-bg" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <div class="modal">
+    <div class="modal-head"><h2 id="cartTitle">Tu carrito</h2><button class="close" id="closeCart" aria-label="Cerrar">×</button></div>
+    <div class="cart-items" id="cartItems"><p class="notice">Aún no has agregado perfumes.</p></div>
+    <div class="cart-row"><strong>Total</strong><strong id="cartTotal">$0 MXN</strong></div>
+    <p class="notice">Este sitio es una demostración. El botón prepara el texto de tu pedido para copiarlo; todavía debes configurar tus datos de contacto y métodos de pago.</p>
+    <div class="cart-actions"><button id="copyOrder">Copiar pedido</button><button class="secondary" id="continue">Seguir viendo</button></div>
+  </div>
+</div>
+<script>
+const cart=[];
+const money=n=>n.toLocaleString('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0});
+const modal=document.getElementById('cartModal');
+function renderCart(){
+  document.getElementById('cartCount').textContent=cart.reduce((s,p)=>s+p.qty,0);
+  const items=document.getElementById('cartItems');
+  if(!cart.length){items.innerHTML='<p class="notice">Aún no has agregado perfumes.</p>';}
+  else{items.innerHTML=cart.map((p,i)=>`<div class="cart-row"><span>${p.name} × ${p.qty}<br><small>${money(p.price)} c/u</small></span><span>${money(p.price*p.qty)} <button aria-label="Quitar ${p.name}" data-remove="${i}" style="border:0;background:none;margin-left:8px">×</button></span></div>`).join('');}
+  document.getElementById('cartTotal').textContent=money(cart.reduce((s,p)=>s+p.price*p.qty,0));
+}
+document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>{
+ const name=btn.dataset.name,price=Number(btn.dataset.price),found=cart.find(p=>p.name===name);
+ if(found)found.qty++;else cart.push({name,price,qty:1});renderCart();btn.textContent='Agregado ✓';setTimeout(()=>btn.textContent='Agregar',1000);
+}));
+document.getElementById('products').addEventListener('click',e=>{
+ const i=e.target.dataset.remove;if(i!==undefined){cart.splice(Number(i),1);renderCart();}
+});
+function openCart(){renderCart();modal.classList.add('open')}
+document.getElementById('openCart').addEventListener('click',openCart);
+document.getElementById('contactCart').addEventListener('click',openCart);
+document.getElementById('closeCart').addEventListener('click',()=>modal.classList.remove('open'));
+document.getElementById('continue').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
+document.getElementById('copyOrder').addEventListener('click',async()=>{
+ const total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+ const message='Hola, quiero hacer este pedido:\n'+(cart.length?cart.map(p=>`${p.name} x${p.qty} — ${money(p.price*p.qty)}`).join('\n'):'(sin productos)')+'\nTotal: '+money(total);
+ try{await navigator.clipboard.writeText(message);document.getElementById('copyOrder').textContent='¡Pedido copiado!';}
+ catch(e){window.prompt('Copia tu pedido:',message);}
+});
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ document.querySelectorAll('.product').forEach(card=>card.hidden=btn.dataset.filter!=='todos'&&card.dataset.category!==btn.dataset.filter);
+}));
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('show'));
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('show')));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body></html>
